@@ -1,0 +1,1 @@
+export const url = "https://sgi-server-multiple.herokuapp.com/api/v1"

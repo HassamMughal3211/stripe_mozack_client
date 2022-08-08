@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* table css */
+table thead:first-child {
+  background: #403e3e;
+  color: white;
+}
+table thead:last-child {
+  display: none !important;
+}
+
+/* .css-1ygcj2i-MuiTableCell-root {
+  color: white !important;
+} */
+
+/* .css-1ndpvdd-MuiTableCell-root {
+  color: white !important;
+} */
+
+.ant-popover {
+  z-index: 9999999999999 !important;
+  width: 150px !important;
+  /* color: black !important; */
+  cursor: pointer !important;
+}
+
+.PhoneInput {
+  width: 100% !important;
+  padding: inherit !important;
+}
+.PhoneInputInput {
+  padding: 16px 14px !important;
+}

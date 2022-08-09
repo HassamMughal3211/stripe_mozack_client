@@ -17,6 +17,9 @@ import {
 import { useSelector } from "react-redux";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import Navbar from "../../Components/Navbar/Navbar";
+import ReplayIcon from "@mui/icons-material/Replay";
+
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 const TransactionList = () => {
   const user = useSelector((state) => state.user.data);
@@ -299,10 +302,16 @@ const TransactionList = () => {
             <Button
               onClick={getAllTransactions}
               variant="contained"
-              style={{ background: `${lightBackground}`, color: `${white}` }}
+              style={{
+                background: `${lightBackground}`,
+                color: `${white}`,
+                display: "flex",
+                alignItems: "center",
+              }}
               // color={`${darkButton}`}
             >
-              REload
+              <RefreshIcon sx={{ mr: 1 }} />
+              Reload
             </Button>
             <Button
               onClick={() => navigate(`/transaction/record/00000000000_CREATE`)}

@@ -9,6 +9,7 @@ import { store, persistor } from "./redux/store";
 
 function App() {
 
+  console.log = () => { }
   // const primaryTheme = createTheme({
   //   palette: {
   //     background: {

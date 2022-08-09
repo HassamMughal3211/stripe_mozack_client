@@ -31,6 +31,15 @@ const TransactionList = () => {
   let navigate = useNavigate();
   // const navigate = useNavigate();
 
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "GBP",
+
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
   const transactionObject = {
     transactionId: "1234567",
     year: 2022,
@@ -177,6 +186,7 @@ const TransactionList = () => {
 
   const getAllTransactions = async () => {
     try {
+      setData([]);
       setIsLoaded(true);
       const response = await axios
         .post(
@@ -197,6 +207,7 @@ const TransactionList = () => {
             columns,
             rows: data.data.data.map((item) => ({
               ...item,
+              total: formatter.format(item.total),
               paymentStatus: item.paymentStatus ? (
                 <Typography
                   variant="button"
@@ -226,7 +237,11 @@ const TransactionList = () => {
                 </Typography>
               ),
 
-              paymentTime: item.paymentStatus ? item.updatedAt : "",
+              paymentTime: item.paymentStatus
+                ? new Date(item.updatedAt).toLocaleString("en-US", {
+                    timeZone: "Asia/Karachi",
+                  })
+                : "",
               action: (
                 <>
                   <span
@@ -277,7 +292,18 @@ const TransactionList = () => {
               All Transactions
             </Typography>
           </Grid>
-          <Grid xs={12} style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Grid
+            xs={12}
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <Button
+              onClick={getAllTransactions}
+              variant="contained"
+              style={{ background: `${lightBackground}`, color: `${white}` }}
+              // color={`${darkButton}`}
+            >
+              REload
+            </Button>
             <Button
               onClick={() => navigate(`/transaction/record/00000000000_CREATE`)}
               variant="contained"

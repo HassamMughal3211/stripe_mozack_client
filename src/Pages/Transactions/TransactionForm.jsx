@@ -47,10 +47,10 @@ const TransactionForm = () => {
   const [selectDiscription, setSelectDiscription] = useState("");
   const [discription, setDiscription] = useState("");
   const [invoiceLink, setInvoiceLink] = useState("");
-  // const [allAccounts, setAllAccounts] = useState();
+  const [allAccounts, setAllAccounts] = useState([]);
   const [account, setAccount] = useState("");
   const [isAccLoaded, setIsAccLoaded] = useState(false);
-  var allAccounts = [];
+  // var allAccounts = [];
 
   const [isReadOnly, setIsReadOnly] = useState(false);
 
@@ -75,7 +75,7 @@ const TransactionForm = () => {
         setIsAccLoaded(false);
         await axios.get(`${url}/stripe/getAllAccounts`).then((response) => {
           if (response.data.success) {
-            // setAllAccounts([]);
+            setAllAccounts(response.data.data);
             console.log("response", response.data.data);
             // allAccounts = response.data.data;
             setIsAccLoaded(true);
@@ -89,6 +89,10 @@ const TransactionForm = () => {
   useEffect(() => {
     getAllAccounts();
   }, []);
+
+  useEffect(()=>{
+    console.log(allAccounts)
+  },[allAccounts])
 
   const submitForm = async () => {
     if (
@@ -144,6 +148,7 @@ const TransactionForm = () => {
         year: new Date().getFullYear(),
         month,
         link: linkUrl,
+        account
       };
       // console.log("submit data", data);
       await axios
@@ -393,7 +398,6 @@ const TransactionForm = () => {
                       onChange={(e) => setAccount(e.target.value)}
                       disabled={isReadOnly}
                     >
-                      {console.log("allaccounts", allAccounts)}
                       {isAccLoaded ? (
                         allAccounts.length > 0 ? (
                           allAccounts.map((acc) => (

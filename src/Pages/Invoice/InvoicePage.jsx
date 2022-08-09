@@ -518,6 +518,7 @@ const InvoicePage = () => {
                     <StripeCardForm
                       transactionId={invoiceId}
                       amount={Number(data.total)}
+                      account={data.account}
                     />
                   </Grid>
                 </Paper>

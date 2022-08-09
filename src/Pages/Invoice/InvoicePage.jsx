@@ -40,6 +40,7 @@ const InvoicePage = () => {
   const state = useSelector((state) => state.user.data);
 
   const [data, setData] = useState();
+  const [key, setKey] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +77,8 @@ const InvoicePage = () => {
       .then((response) => {
         console.log("response", response.data.data[0]);
         setData(response.data.data[0]);
-
+        console.log("key", response.data.key.publishKey);
+        setKey(response.data.key.publishKey);
         setIsLoading(true);
         // if (response.data.success) {
         //   // setIsReadOnly(true);
@@ -519,6 +521,7 @@ const InvoicePage = () => {
                       transactionId={invoiceId}
                       amount={Number(data.total)}
                       account={data.account}
+                      key={key}
                     />
                   </Grid>
                 </Paper>

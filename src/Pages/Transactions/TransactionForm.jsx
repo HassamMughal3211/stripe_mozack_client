@@ -49,7 +49,7 @@ const TransactionForm = () => {
   const [invoiceLink, setInvoiceLink] = useState("");
   const [allAccounts, setAllAccounts] = useState([]);
   const [account, setAccount] = useState("");
-  const [isAccLoaded, setIsAccLoaded] = useState(false);
+  const [isAccLoaded, setIsAccLoaded] = useState(true);
   // var allAccounts = [];
 
   const [isReadOnly, setIsReadOnly] = useState(false);
@@ -90,9 +90,9 @@ const TransactionForm = () => {
     getAllAccounts();
   }, []);
 
-  useEffect(()=>{
-    console.log(allAccounts)
-  },[allAccounts])
+  // useEffect(() => {
+  //   console.log(allAccounts);
+  // }, [allAccounts]);
 
   const submitForm = async () => {
     if (
@@ -148,7 +148,7 @@ const TransactionForm = () => {
         year: new Date().getFullYear(),
         month,
         link: linkUrl,
-        account
+        account,
       };
       // console.log("submit data", data);
       await axios
@@ -220,6 +220,7 @@ const TransactionForm = () => {
               setSelectDiscription(ts.discription);
               setDiscription(ts.detailDiscription);
               setInvoiceLink(ts.invoiceLink);
+              setAccount(ts.account);
             }
           });
       }
@@ -398,7 +399,9 @@ const TransactionForm = () => {
                       onChange={(e) => setAccount(e.target.value)}
                       disabled={isReadOnly}
                     >
-                      {isAccLoaded ? (
+                      {accessType === "readOnly" ? (
+                        <MenuItem value={account}>{account}</MenuItem>
+                      ) : isAccLoaded ? (
                         allAccounts.length > 0 ? (
                           allAccounts.map((acc) => (
                             <MenuItem value={acc.account}>

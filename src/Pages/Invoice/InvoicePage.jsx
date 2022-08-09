@@ -13,6 +13,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { url } from "../../baseUrl";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import {
   button,
   cardBackground,
@@ -42,6 +43,7 @@ const InvoicePage = () => {
   const [data, setData] = useState();
   const [key, setKey] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isPaid, setIsPaid] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
@@ -79,7 +81,15 @@ const InvoicePage = () => {
         setData(response.data.data[0]);
         console.log("key", response.data.key.publishKey);
         setKey(response.data.key.publishKey);
+
+        if (response.data.data[0].paymentStatus) {
+          setIsPaid(true);
+        } else {
+          setIsPaid(false);
+        }
+
         setIsLoading(true);
+
         // if (response.data.success) {
         //   // setIsReadOnly(true);
         //   // let ts = response.data.data[0];
@@ -517,12 +527,22 @@ const InvoicePage = () => {
                       // alignItems: "center",
                     }}
                   >
-                    <StripeCardForm
-                      transactionId={invoiceId}
-                      amount={Number(data.total)}
-                      account={data.account}
-                      key={key}
-                    />
+                    {isPaid ? (
+                      <Typography
+                        variant="h5"
+                        style={{ display: "flex", alignItems: "center" , color:'green'}}
+                      >
+                        <TaskAltIcon />
+                        &nbsp; ALREADY PAID
+                      </Typography>
+                    ) : (
+                      <StripeCardForm
+                        transactionId={invoiceId}
+                        amount={Number(data.total)}
+                        account={data.account}
+                        stripeKey={key}
+                      />
+                    )}
                   </Grid>
                 </Paper>
               </Grid>

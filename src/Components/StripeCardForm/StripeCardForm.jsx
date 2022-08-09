@@ -10,6 +10,7 @@ import { url } from "../../baseUrl";
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
+
 // const stripePromise = loadStripe(
 //   "pk_test_51L5CyVC7O5vYeWKXXHrYYuRhpG2n8bKee8SYC7ZdzbQ5Lo6ilLdC7QQJsIs2xHQfvNM4RuGMjl1Q2ZXigxzf3pvp00R6R7sJUB"
 // );
@@ -18,10 +19,10 @@ export default function StripeCardForm({
   transactionId,
   amount,
   account,
-  key,
+  stripeKey,
 }) {
   const [clientSecret, setClientSecret] = useState("");
-  console.log(transactionId, "/invoice/record/629fad5ac285ac387510f100	  ");
+  // console.log(transactionId, "/invoice/record/629fad5ac285ac387510f100	  ");
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -49,11 +50,14 @@ export default function StripeCardForm({
 
   return (
     <div className="App">
-      {clientSecret && (
-        <Elements options={options} stripe={loadStripe(key)}>
-          <CheckOutForm />
-        </Elements>
-      )}
+      {
+        // console.log("key22", stripeKey)
+        clientSecret && (
+          <Elements options={options} stripe={loadStripe(`${stripeKey}`)}>
+            <CheckOutForm />
+          </Elements>
+        )
+      }
     </div>
   );
 }

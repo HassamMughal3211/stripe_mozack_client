@@ -19,7 +19,7 @@ import { login } from "../../redux/actions/authAction";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import { lightBackground, white } from "../../Assets/Theme/ThemeColors";
-import logo from "../../Assets/images/companylogo.png";
+import logo from "../../Assets/images/logo.png";
 import CustomizedSnackbars from "../../Components/SnackBar/SnackBar";
 import { Error } from "@mui/icons-material";
 

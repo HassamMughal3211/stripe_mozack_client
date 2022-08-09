@@ -1,7 +1,11 @@
 import { Button, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
-import { lightBackground, navbar } from "../../Assets/Theme/ThemeColors";
+import {
+  brandName,
+  lightBackground,
+  navbar,
+} from "../../Assets/Theme/ThemeColors";
 import PopOver from "../Popover/PopOver";
 
 const Navbar = () => {
@@ -19,8 +23,16 @@ const Navbar = () => {
         background: `${lightBackground}`,
       }}
     >
-      <Grid md={3} xs={6} style={{display:'flex', alignItems:'center' , justifyContent:'center'}}>
-        <Typography variant="h6" >STRIPE GATEWAY APP</Typography>
+      <Grid
+        md={3}
+        xs={6}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="h6">{brandName}</Typography>
       </Grid>
       <Grid md={8} xs={0}></Grid>
       <Grid md={1} xs={6}>

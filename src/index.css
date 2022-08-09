@@ -13,8 +13,11 @@ code {
 }
 
 /* table css */
+.pagination .page-item.active .page-link {
+  background: #131e3c !important;
+}
 table thead:first-child {
-  background: #403e3e;
+  background: #131e3c;
   color: white;
 }
 table thead:last-child {

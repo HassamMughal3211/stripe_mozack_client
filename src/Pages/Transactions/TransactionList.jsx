@@ -135,31 +135,40 @@ const TransactionList = () => {
       width: 100,
     },
     {
+      label: "Account",
+      field: "account",
+      sort: "asc",
+      width: 100,
+    },
+    {
       label: "Payment Status",
       field: "paymentStatus",
       sort: "asc",
       width: 100,
     },
-
+    {
+      label: "Payment Time",
+      field: "paymentTime",
+      sort: "asc",
+      width: 100,
+    },
     {
       label: "Discription",
       field: "discription",
       sort: "asc",
       width: 150,
     },
-
-    {
-      label: "Stripe ID",
-      field: "stripeId",
-      sort: "asc",
-      width: 150,
-    },
-
     {
       label: "Invoice-Link",
       field: "invoiceLink",
       sort: "asc",
       width: 300,
+    },
+    {
+      label: "Stripe ID",
+      field: "stripeId",
+      sort: "asc",
+      width: 150,
     },
   ];
   useEffect(() => {
@@ -188,12 +197,36 @@ const TransactionList = () => {
             columns,
             rows: data.data.data.map((item) => ({
               ...item,
-              paymentStatus: item.paymentStatus ? "paid" : "unpaid",
-              // agent: item.agent ? item.agent.user_name : "",
-              // date: item.date.split("T")[0],
-              // //  + "-" + item.date.split("T")[1],
-              // created_by: item.created_by ? item.created_by.user_name : "",
-              // delivery_date: item.delivery_date.split("T")[0],
+              paymentStatus: item.paymentStatus ? (
+                <Typography
+                  variant="button"
+                  style={{
+                    width: "200px",
+                    padding: "10px",
+                    background: "green",
+                    borderRadius: "5px",
+                    color: "white",
+                  }}
+                >
+                  {" "}
+                  paid
+                </Typography>
+              ) : (
+                <Typography
+                  variant="button"
+                  style={{
+                    width: "200px",
+                    padding: "10px",
+                    background: "red",
+                    borderRadius: "5px",
+                    color: "white",
+                  }}
+                >
+                  unpaid
+                </Typography>
+              ),
+
+              paymentTime: item.paymentStatus ? item.updatedAt : "",
               action: (
                 <>
                   <span

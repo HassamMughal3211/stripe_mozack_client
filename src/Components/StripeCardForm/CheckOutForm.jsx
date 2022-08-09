@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   PaymentElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
 
 export default function CheckOutForm() {
@@ -11,6 +11,8 @@ export default function CheckOutForm() {
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const linkUrl = window.location.origin;
 
   useEffect(() => {
     if (!stripe) {
@@ -58,7 +60,7 @@ export default function CheckOutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/success",
+        return_url: `${linkUrl}/success`,
       },
     });
 
@@ -81,7 +83,7 @@ export default function CheckOutForm() {
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? <div className="spinner" id="spinner">O</div> : "Pay now"}
         </span>
       </button>
       {/* Show any error or success messages */}

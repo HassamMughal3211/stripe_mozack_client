@@ -18,14 +18,13 @@ const text = <span>ADMIN</span>;
 // }
 
 const content = (
-  <div style={{ zIndex: 99999 }}>
-    <p onClick={() => {localStorage.clear(); window.location.reload()} }>logout</p>
-    {/* <Link
+  <div >
+    {/* <p onClick={() => {localStorage.clear(); window.location.reload()} }>logout</p> */}
+    <Link
       to="/signin"
-      //  style={{textDecoration :'none' , cursor:'pointer'}}
-    > */}
-
-{/* </Link> */ }
+    //  style={{textDecoration :'none' , cursor:'pointer'}}
+    >logout
+    </Link>
   </div >
 );
 
@@ -37,8 +36,8 @@ export default ({ name }) => (
     <div style={{ clear: "both", whiteSpace: "nowrap" }}>
       <Popover
         placement="bottomRight"
-        // title={text}
-        content={content}
+        title={'text'}
+        // content={content}
         trigger="click"
       >
         <span style={{ cursor: "pointer", width: "100px" }}>

@@ -36,7 +36,7 @@ const TransactionForm = () => {
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState(0);
   const [brand, setBrand] = useState(brandName);
-  const [service, setService] = useState("");
+  const [orderId, setOrderId] = useState("");
   const [packageName, setPackageName] = useState("");
   const [typeOfSale, setTypeOfSale] = useState("");
   const [salesPerson, setSalesPerson] = useState("");
@@ -50,8 +50,12 @@ const TransactionForm = () => {
   const [allAccounts, setAllAccounts] = useState([]);
   const [account, setAccount] = useState("");
   const [isAccLoaded, setIsAccLoaded] = useState(true);
+  const [allTypesOfSale, setAllTypesOfSale] = useState([
+    { sale: "New" },
+    { sale: "Existing" },
+  ]);
   // var allAccounts = [];
-
+  console.log("allTypesOfSale", allTypesOfSale);
   const [isReadOnly, setIsReadOnly] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -100,7 +104,7 @@ const TransactionForm = () => {
       email &&
       number &&
       brand &&
-      service &&
+      orderId &&
       packageName &&
       typeOfSale &&
       salesPerson &&
@@ -135,7 +139,7 @@ const TransactionForm = () => {
         custEmail: email,
         custContactNumber: number,
         brand,
-        brandService: service,
+        orderId: orderId,
         packageName,
         saleType: typeOfSale,
         salePerson: salesPerson,
@@ -209,7 +213,7 @@ const TransactionForm = () => {
               setEmail(ts.custEmail);
               setNumber(ts.custContactNumber);
               setBrand(ts.brand);
-              setService(ts.brandService);
+              setOrderId(ts.orderId);
               setPackageName(ts.packageName);
               setTypeOfSale(ts.saleType);
               setSalesPerson(ts.salePerson);
@@ -241,7 +245,7 @@ const TransactionForm = () => {
         <Box
         // sx={{ mt: 3 }}
         >
-          {isAccLoaded ? (
+          {!isAccLoaded ? (
             <Paper sx={{ p: 3, mr: 2, ml: 2, background: `${white}` }}>
               <Grid
                 container
@@ -332,34 +336,56 @@ const TransactionForm = () => {
                 <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
                 <Grid item md={3} xs={12} sx={{ p: 1 }}>
                   <TextField
-                    name="service"
-                    label="Brand Service"
+                    name="orderId"
+                    label="Order ID"
                     type="text"
                     margin="normal"
                     fullWidth
                     disabled={isReadOnly}
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
+                    value={orderId}
+                    onChange={(e) => setOrderId(e.target.value)}
                   />
                 </Grid>
-                <Grid item md={3} xs={12} sx={{ p: 1 }}>
-                  <TextField
-                    name="packageName"
-                    label="Package Name"
-                    type="text"
-                    margin="normal"
-                    fullWidth
-                    disabled={isReadOnly}
-                    value={packageName}
-                    onChange={(e) => setPackageName(e.target.value)}
-                  />
+                <Grid item container md={3} xs={12} sx={{ p: 1 }}>
+                  <FormControl margin="normal" fullWidth>
+                    <InputLabel id="demo-simple-select-label">
+                      Select Stripe Account
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={account}
+                      margin="normal"
+                      label="Select Stripe Account"
+                      onChange={(e) => setAccount(e.target.value)}
+                      disabled={isReadOnly}
+                      style={{ textAlign: "left" }}
+                    >
+                      {accessType === "readOnly" ? (
+                        <MenuItem value={account}>{account}</MenuItem>
+                      ) : isAccLoaded ? (
+                        allAccounts.length > 0 ? (
+                          allAccounts.map((acc) => (
+                            <MenuItem value={acc.account}>
+                              {acc.account}
+                            </MenuItem>
+                          ))
+                        ) : (
+                          <MenuItem value={""}>none</MenuItem>
+                        )
+                      ) : (
+                        []
+                      )}
+                    </Select>
+                  </FormControl>
                 </Grid>
+
                 <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
               </Grid>
               <Grid item container className="Row">
                 <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
                 <Grid item md={3} xs={12} sx={{ p: 1 }}>
-                  <TextField
+                  {/* <TextField
                     name="typeOfSale"
                     label="Type Of Sale"
                     type="text"
@@ -368,7 +394,32 @@ const TransactionForm = () => {
                     disabled={isReadOnly}
                     value={typeOfSale}
                     onChange={(e) => setTypeOfSale(e.target.value)}
-                  />
+                  /> */}
+                  <FormControl margin="normal" fullWidth>
+                    <InputLabel id="demo-simple-select-label">
+                      Type Of Sale
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={typeOfSale}
+                      margin="normal"
+                      label="Type Of Sale"
+                      onChange={(e) => setTypeOfSale(e.target.value)}
+                      disabled={isReadOnly}
+                      style={{ textAlign: "left" }}
+                    >
+                      {accessType === "readOnly" ? (
+                        <MenuItem value={typeOfSale}>{typeOfSale}</MenuItem>
+                      ) : allTypesOfSale.length > 0 ? (
+                        allTypesOfSale.map((tos) => {
+                          <MenuItem value={tos.sale}>{tos.sale}</MenuItem>;
+                        })
+                      ) : (
+                        <MenuItem value={""}>none</MenuItem>
+                      )}
+                    </Select>
+                  </FormControl>
                 </Grid>
                 <Grid item md={3} xs={12} sx={{ p: 1 }}>
                   <TextField
@@ -384,7 +435,7 @@ const TransactionForm = () => {
                 </Grid>
                 <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
 
-                <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
+                {/* <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
                 <Grid item container md={6} xs={12} sx={{ p: 1 }}>
                   <FormControl margin="normal" fullWidth>
                     <InputLabel id="demo-simple-select-label">
@@ -418,7 +469,7 @@ const TransactionForm = () => {
                   </FormControl>
                 </Grid>
 
-                <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
+                <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid> */}
               </Grid>
               <Grid item container className="Row">
                 <Grid item md={4} xs={0} sx={{ p: 1 }}></Grid>

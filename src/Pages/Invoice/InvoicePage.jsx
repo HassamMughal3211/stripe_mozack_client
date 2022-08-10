@@ -34,6 +34,7 @@ import CheckoutForm from "../../Components/StripeCardForm/CheckOutForm";
 import "./invoice.css";
 import StripeCardForm from "../../Components/StripeCardForm/StripeCardForm";
 import logo from "../../Assets/images/logo.png";
+import stripeBadge from "../../Assets/images/stripebadge.png";
 
 const InvoicePage = () => {
   let { id } = useParams();
@@ -137,7 +138,7 @@ const InvoicePage = () => {
                 alignItems: "center",
               }}
             >
-              <img src={logo} height="30px" width="200px" alt="logo"></img>
+              <img src={logo} height="30px" width="180px" alt="logo"></img>
             </Grid>
             <Grid item md={8} xs={2}></Grid>
           </Grid>
@@ -172,11 +173,19 @@ const InvoicePage = () => {
                     {" "}
                     <Grid
                       xs={12}
-                      sx={{ display: "flex", justifyContent: "flex-start" }}
+                      sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        pr: 2,
+                      }}
                     >
-                      <Typography variant="button" display="block" gutterBottom>
+                      {/* <Typography variant="h6" display="block" gutterBottom>
                         {data.brand}
-                      </Typography>
+                      </Typography> */}
+                      <img
+                        src={logo}
+                        style={{ height: "30px", width: "180px" }}
+                      />
                     </Grid>{" "}
                     {/* <Grid
                       sx={{ display: "flex", justifyContent: "flex-end" }}
@@ -188,7 +197,29 @@ const InvoicePage = () => {
                   <Grid item className="row" container>
                     {" "}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" }}
+                      xs={12}
+                    >
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                        style={{
+                          background: `${mainBackgound}`,
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "10px",
+                        }}
+                      >
+                        ORDER ID : 12JJR
+                      </Typography>
+                    </Grid>{" "}
+                  </Grid>
+
+                  <Grid item className="row" container>
+                    {" "}
+                    <Grid
+                      sx={{ display: "flex", justifyContent: "flex-start" }}
                       xs={12}
                     >
                       <Typography
@@ -209,7 +240,7 @@ const InvoicePage = () => {
                       Phone : 09876543
                     </Grid>{" "} */}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" }}
                       xs={12}
                     >
                       <Typography
@@ -230,7 +261,7 @@ const InvoicePage = () => {
                       website : CyberClosses.com
                     </Grid>{" "} */}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" }}
                       xs={12}
                     >
                       <Typography
@@ -251,7 +282,7 @@ const InvoicePage = () => {
                       Email : abc@gmail.com
                     </Grid>{" "} */}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-end" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" }}
                       xs={12}
                     >
                       <Typography
@@ -259,7 +290,7 @@ const InvoicePage = () => {
                         gutterBottom
                         component="div"
                       >
-                        Date : {data.dateTime.split(",")[0]}
+                        DATE : {data.dateTime.split(",")[0]}
                       </Typography>
                     </Grid>{" "}
                   </Grid>
@@ -423,6 +454,7 @@ const InvoicePage = () => {
                       color: `${button}`,
                       textAlign: "center",
                       paddingTop: "25px",
+                      fontWeight: "300px !important",
                     }}
                   >
                     JUST ONE STEP LEFT
@@ -437,6 +469,7 @@ const InvoicePage = () => {
                   >
                     TO ACTIVATE YOUR COUPON
                   </Typography>
+
                   <Typography
                     variant="h8"
                     sx={{
@@ -530,10 +563,17 @@ const InvoicePage = () => {
                     {isPaid ? (
                       <Typography
                         variant="h5"
-                        style={{ display: "flex", alignItems: "center" , color:'green'}}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          background: "green",
+                          color: "white",
+                          padding: "20px",
+                          borderRadius: "5px",
+                        }}
                       >
                         <TaskAltIcon />
-                        &nbsp; ALREADY PAID
+                        &nbsp; Already Paid
                       </Typography>
                     ) : (
                       <StripeCardForm
@@ -543,6 +583,15 @@ const InvoicePage = () => {
                         stripeKey={key}
                       />
                     )}
+
+                    <Grid sx={{ pt: 1 }}>
+                      <img
+                        src={stripeBadge}
+                        height="100%"
+                        width="100%"
+                        alt="logo"
+                      ></img>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>

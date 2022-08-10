@@ -17,7 +17,7 @@ export const navbar = "#ffffff";
 export const navbarText = "#000000";
 export const lightText = "#ffffff";
 export const mainBackgound = "#131e3c";
-export const invoiceCard = "#cecaca";
+export const invoiceCard = "#f0f0f0";
 export const button = "#ff4f01";
-export const cardBackground = "#cecaca";
+export const cardBackground = "#e1e2e6";
 

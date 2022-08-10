@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actions/authAction";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
-import { lightBackground, white } from "../../Assets/Theme/ThemeColors";
+import { brandName, lightBackground, white } from "../../Assets/Theme/ThemeColors";
 import logo from "../../Assets/images/logo.png";
 import CustomizedSnackbars from "../../Components/SnackBar/SnackBar";
 import { Error } from "@mui/icons-material";
@@ -33,7 +33,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mozack.com/">
-        mozack.com
+        {brandName}
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}

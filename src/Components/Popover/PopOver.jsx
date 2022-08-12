@@ -10,7 +10,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/authAction";
 
-
 const text = <span>ADMIN</span>;
 // const dispatch = useDispatch();
 // const logoutF = () =>{
@@ -18,14 +17,15 @@ const text = <span>ADMIN</span>;
 // }
 
 const content = (
-  <div >
+  <div>
     {/* <p onClick={() => {localStorage.clear(); window.location.reload()} }>logout</p> */}
     <Link
       to="/signin"
-    //  style={{textDecoration :'none' , cursor:'pointer'}}
-    >logout
+      //  style={{textDecoration :'none' , cursor:'pointer'}}
+    >
+      logout
     </Link>
-  </div >
+  </div>
 );
 
 const buttonWidth = "70px";
@@ -36,14 +36,14 @@ export default ({ name }) => (
     <div style={{ clear: "both", whiteSpace: "nowrap" }}>
       <Popover
         placement="bottomRight"
-        title={'text'}
+        title={"text"}
         // content={content}
         trigger="click"
       >
         <span style={{ cursor: "pointer", width: "100px" }}>
-          <Typography style={{ color: "white" }}
-          >
-            {name}<KeyboardArrowDownIcon />
+          <Typography style={{ color : "blue" }}>
+            {name.toUpperCase()}
+            <KeyboardArrowDownIcon />
           </Typography>
         </span>
       </Popover>

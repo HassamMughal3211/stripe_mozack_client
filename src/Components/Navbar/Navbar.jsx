@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import {
   brandName,
   lightBackground,
+  mainBackgound,
   navbar,
 } from "../../Assets/Theme/ThemeColors";
 // import PopOver from "../Popover/PopOver";
@@ -57,8 +58,8 @@ const Navbar = () => {
       >
         <Typography variant="h6">{brandName}</Typography>
       </Grid>
-      <Grid md={8} xs={0}></Grid>
-      <Grid md={1} xs={6}>
+      <Grid md={8} xs={4}></Grid>
+      <Grid md={1} xs={2} >
         <span
         // style={{
         //   height: "100%",
@@ -79,7 +80,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
               >
-                <Avatar sx={{ width: 32, height: 32 }}>{username[0]}</Avatar>
+                <Avatar sx={{ width: 32, height: 32 , color:`${mainBackgound}`, padding:"2px" }}>{username[0].toUpperCase()}</Avatar>
               </IconButton>
             </Tooltip>
           </Box>
@@ -119,7 +120,7 @@ const Navbar = () => {
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
           >
             <MenuItem>
-              <Avatar /> {username}
+              <Avatar /> {username.toUpperCase()}
             </MenuItem>
             <MenuItem onClick={() => { localStorage.clear(); window.location.reload() }}>
               <ListItemIcon>

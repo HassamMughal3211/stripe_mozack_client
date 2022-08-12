@@ -117,17 +117,12 @@ const TransactionList = () => {
       width: 150,
     },
     {
-      label: "Brand Service",
-      field: "brandService",
+      label: "Order ID",
+      field: "orderId",
       sort: "asc",
       width: 150,
     },
-    {
-      label: "Package",
-      field: "packageName",
-      sort: "asc",
-      width: 150,
-    },
+
     {
       label: "Type Of Sale",
       field: "saleType",
@@ -139,6 +134,12 @@ const TransactionList = () => {
       field: "salePerson",
       sort: "asc",
       width: 250,
+    },
+    {
+      label: "Service",
+      field: "detailDescription",
+      sort: "asc",
+      width: 150,
     },
     {
       label: "Total Amount",

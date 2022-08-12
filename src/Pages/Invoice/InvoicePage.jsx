@@ -211,7 +211,7 @@ const InvoicePage = () => {
                           borderRadius: "10px",
                         }}
                       >
-                        ORDER ID : 12JJR
+                        ORDER ID : {data.orderId}
                       </Typography>
                     </Grid>{" "}
                   </Grid>
@@ -465,6 +465,7 @@ const InvoicePage = () => {
                       color: `${button}`,
                       textAlign: "center",
                       paddingTop: "5px",
+                      marginBottom:'20px'
                     }}
                   >
                     TO ACTIVATE YOUR COUPON
@@ -476,6 +477,7 @@ const InvoicePage = () => {
                       color: `${lightText}`,
                       textAlign: "center",
                       paddingTop: "10px",
+                      marginTop: "20px",
                     }}
                   >
                     We're almost done here, just a few more things that we'd be

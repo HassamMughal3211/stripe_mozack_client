@@ -104,7 +104,6 @@ const TransactionForm = () => {
       number &&
       brand &&
       orderId &&
-      packageName &&
       typeOfSale &&
       salesPerson &&
       amount &&
@@ -139,7 +138,7 @@ const TransactionForm = () => {
         custContactNumber: number,
         brand,
         orderId: orderId,
-        packageName,
+        // packageName,
         saleType: typeOfSale,
         salePerson: salesPerson,
         amount,
@@ -211,7 +210,7 @@ const TransactionForm = () => {
             setNumber(ts.custContactNumber);
             setBrand(ts.brand);
             setOrderId(ts.orderId);
-            setPackageName(ts.packageName);
+            // setPackageName(ts.packageName);
             setTypeOfSale(ts.saleType);
             setSalesPerson(ts.salePerson);
             setAmount(ts.amount);
@@ -397,20 +396,20 @@ const TransactionForm = () => {
                   /> */}
                   <FormControl margin="normal" fullWidth>
                     <InputLabel id="demo-simple-select-label">
-                      Select Stripe Account
+                    Type Of Sale
                     </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={account}
+                      value={typeOfSale}
                       margin="normal"
-                      label="Select Stripe Account"
-                      // onChange={(e) => setAccount(e.target.value)}
+                      label="Type Of Sale"
+                      onChange={(e) => setTypeOfSale(e.target.value)}
                       disabled={isReadOnly}
                       style={{ textAlign: "left" }}
                     >
                       {accessType === "readOnly" ? (
-                        <MenuItem value={account}>{account}</MenuItem>
+                        <MenuItem value={typeOfSale}>{typeOfSale}</MenuItem>
                       ) : isAccLoaded ? (
                         allTypesOfSale.length > 0 ? (
                           allTypesOfSale.map((acc) => (
@@ -564,8 +563,8 @@ const TransactionForm = () => {
                 <Grid item md={4} xs={0} sx={{ p: 1 }}></Grid>
                 <Grid item md={4} xs={12} sx={{ p: 1 }}>
                   <TextField
-                    name="selecDiscription"
-                    label="Select Disription"
+                    name="service"
+                    label="Service"
                     type="text"
                     margin="normal"
                     fullWidth

@@ -245,7 +245,7 @@ const TransactionForm = () => {
         <Box
         // sx={{ mt: 3 }}
         >
-          {!isAccLoaded ? (
+          {isAccLoaded ? (
             <Paper sx={{ p: 3, mr: 2, ml: 2, background: `${white}` }}>
               <Grid
                 container

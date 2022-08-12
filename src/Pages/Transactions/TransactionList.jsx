@@ -137,7 +137,7 @@ const TransactionList = () => {
     },
     {
       label: "Service",
-      field: "detailDescription",
+      field: "detailDiscription",
       sort: "asc",
       width: 150,
     },

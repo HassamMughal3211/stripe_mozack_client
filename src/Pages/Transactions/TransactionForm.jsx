@@ -87,7 +87,7 @@ const TransactionForm = () => {
           }
         });
       }
-    } catch (error) { }
+    } catch (error) {}
   };
   useEffect(() => {
     getAllAccounts();
@@ -195,39 +195,40 @@ const TransactionForm = () => {
       setSeverity("error");
     }
   };
+  const getSpecificTransaction = async () => {
+    if (accessType === "readOnly") {
+      await axios
+        .post(`${url}/transactions/getSpecificTransaction`, {
+          _id: transactionId,
+        })
+        .then((response) => {
+          // console.log("response", response);
+          if (response.data.success) {
+            setIsReadOnly(true);
+            let ts = response.data.data[0];
+            setName(ts.custName);
+            setEmail(ts.custEmail);
+            setNumber(ts.custContactNumber);
+            setBrand(ts.brand);
+            setOrderId(ts.orderId);
+            setPackageName(ts.packageName);
+            setTypeOfSale(ts.saleType);
+            setSalesPerson(ts.salePerson);
+            setAmount(ts.amount);
+            setDiscount(ts.discount);
+            setAdditionalCharges(ts.additionalCharges);
+            setTotal(ts.total);
+            setSelectDiscription(ts.discription);
+            setDiscription(ts.detailDiscription);
+            setInvoiceLink(ts.invoiceLink);
+            setAccount(ts.account);
+          }
+        });
+    }
+  };
 
   useEffect(() => {
-    return async () => {
-      if (accessType === "readOnly") {
-        await axios
-          .post(`${url}/transactions/getSpecificTransaction`, {
-            _id: transactionId,
-          })
-          .then((response) => {
-            // console.log("response", response);
-            if (response.data.success) {
-              setIsReadOnly(true);
-              let ts = response.data.data[0];
-              setName(ts.custName);
-              setEmail(ts.custEmail);
-              setNumber(ts.custContactNumber);
-              setBrand(ts.brand);
-              setOrderId(ts.orderId);
-              setPackageName(ts.packageName);
-              setTypeOfSale(ts.saleType);
-              setSalesPerson(ts.salePerson);
-              setAmount(ts.amount);
-              setDiscount(ts.discount);
-              setAdditionalCharges(ts.additionalCharges);
-              setTotal(ts.total);
-              setSelectDiscription(ts.discription);
-              setDiscription(ts.detailDiscription);
-              setInvoiceLink(ts.invoiceLink);
-              setAccount(ts.account);
-            }
-          });
-      }
-    };
+    getSpecificTransaction();
   }, []);
 
   return (
@@ -379,7 +380,6 @@ const TransactionForm = () => {
                   </FormControl>
                 </Grid>
 
-
                 <Grid item md={3} xs={0} sx={{ p: 1 }}></Grid>
               </Grid>
               <Grid item container className="Row">
@@ -414,9 +414,7 @@ const TransactionForm = () => {
                       ) : isAccLoaded ? (
                         allTypesOfSale.length > 0 ? (
                           allTypesOfSale.map((acc) => (
-                            <MenuItem value={acc.sale}>
-                              {acc.sale}
-                            </MenuItem>
+                            <MenuItem value={acc.sale}>{acc.sale}</MenuItem>
                           ))
                         ) : (
                           <MenuItem value={""}>none</MenuItem>
@@ -426,7 +424,6 @@ const TransactionForm = () => {
                       )}
                     </Select>
                   </FormControl>
-
                 </Grid>
                 <Grid item md={3} xs={12} sx={{ p: 1 }}>
                   <TextField

@@ -35,6 +35,11 @@ import "./invoice.css";
 import StripeCardForm from "../../Components/StripeCardForm/StripeCardForm";
 import logo from "../../Assets/images/logo.png";
 import stripeBadge from "../../Assets/images/stripebadge.png";
+import comoo from "../../Assets/images/comoo.png";
+import masterCard from "../../Assets/images/masterCard.png";
+import norton from "../../Assets/images/norton.png";
+import visa from "../../Assets/images/visa.png";
+import ssl from "../../Assets/images/ssl.png";
 
 const InvoicePage = () => {
   let { id } = useParams();
@@ -465,7 +470,7 @@ const InvoicePage = () => {
                       color: `${button}`,
                       textAlign: "center",
                       paddingTop: "5px",
-                      marginBottom:'20px'
+                      marginBottom: "20px",
                     }}
                   >
                     TO ACTIVATE YOUR COUPON
@@ -599,7 +604,59 @@ const InvoicePage = () => {
               </Grid>
             </Grid>
           </Grid>
+          {/* card logos */}
+          <Grid
+            item
+            xs={12}
+            sx={{
+              height: "10vh",
+              background: `${cardBackground}`,
+              // color: `${navbarText}`,
+            }}
+          >
+            <Grid
+              xs={12}
+              sx={{
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Grid sx={{ p: 2 }}>
+                <img src={ssl} height="60px" width="90px" alt="logo"></img>
+              </Grid>
+              <Grid sx={{ p: 2 }}>
+                <img src={norton} height="30px" width="70px" alt="logo"></img>
+              </Grid>
+              <Grid sx={{ p: 2 }}>
+                <img src={comoo} height="37px" width="70px" alt="logo"></img>
+              </Grid>
+              <Grid sx={{ p: 2 }}>
+                <img src={visa} height="30px" width="75px" alt="logo"></img>
+              </Grid>
+              <Grid sx={{ p: 2 }}>
+                <img
+                  src={masterCard}
+                  height="20px"
+                  width="75px"
+                  alt="logo"
+                ></img>
+              </Grid>
+            </Grid>
+          </Grid>
 
+          {/* BLANK */}
+          <Grid
+            item
+            xs={12}
+            sx={{
+              height: "6vh",
+              background: `${mainBackgound}`,
+              // color: `${navbarText}`,
+            }}
+          ></Grid>
+          {/* footer */}
           <Grid
             item
             xs={12}

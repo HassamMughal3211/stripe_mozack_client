@@ -40,6 +40,8 @@ import masterCard from "../../Assets/images/masterCard.png";
 import norton from "../../Assets/images/norton.png";
 import visa from "../../Assets/images/visa.png";
 import ssl from "../../Assets/images/ssl.png";
+import MailIcon from "@mui/icons-material/Mail";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 const InvoicePage = () => {
   let { id } = useParams();
@@ -122,6 +124,62 @@ const InvoicePage = () => {
     <>
       {isLoading ? (
         <>
+          {/* info */}
+          <Grid
+            container
+            xs={12}
+            sx={{
+              height: "6vh",
+              background: `${mainBackgound}`,
+              color: `${white}`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "Roboto",
+            }}
+          >
+            <Typography
+              variant="subtitle2"
+              gutterBottom
+              component="div"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              <MailIcon sx={{ color: `${button}`, mr: 1 }} />
+              info@theassignmentexpert.co.uk
+            </Typography>
+            <Typography
+              sx={{
+                borderRight: "2px solid white",
+                width: "15px",
+                color: `${mainBackgound}`,
+              }}
+            >
+              <div
+                style={{ width: "100%", borderRight: "2px solid white" }}
+              ></div>
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              gutterBottom
+              component="div"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: "10px",
+                height: "100%",
+              }}
+            >
+              <LocalPhoneIcon sx={{ color: `${button}`, mr: 1 }} />{" "}
+              +442032397505
+            </Typography>
+          </Grid>
+          {/* navbar */}
           <Grid
             container
             xs={12}
@@ -147,7 +205,7 @@ const InvoicePage = () => {
             </Grid>
             <Grid item md={8} xs={2}></Grid>
           </Grid>
-
+          {/* content */}
           <Grid
             container
             style={{
@@ -610,8 +668,8 @@ const InvoicePage = () => {
             xs={12}
             sx={{
               height: "10vh",
-              width:"100%",
-              overflow:'hidden',
+              width: "100%",
+              overflow: "hidden",
               background: `${cardBackground}`,
               // color: `${navbarText}`,
             }}

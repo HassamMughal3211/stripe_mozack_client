@@ -41,7 +41,7 @@ const Navbar = () => {
       container
       sx={12}
       style={{
-        height: "8vh",
+        height: "6vh",
         color: "white",
         width: "100%",
         background: `${lightBackground}`,

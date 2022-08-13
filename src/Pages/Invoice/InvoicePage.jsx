@@ -610,6 +610,8 @@ const InvoicePage = () => {
             xs={12}
             sx={{
               height: "10vh",
+              width:"100%",
+              overflow:'hidden',
               background: `${cardBackground}`,
               // color: `${navbarText}`,
             }}

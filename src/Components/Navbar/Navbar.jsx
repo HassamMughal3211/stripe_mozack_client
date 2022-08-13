@@ -41,15 +41,15 @@ const Navbar = () => {
       container
       sx={12}
       style={{
-        height: "6vh",
+        height: "8vh",
         color: "white",
-        width: "100vw",
+        width: "100%",
         background: `${lightBackground}`,
       }}
     >
       <Grid
         md={3}
-        xs={6}
+        xs={10}
         style={{
           display: "flex",
           alignItems: "center",
@@ -58,7 +58,7 @@ const Navbar = () => {
       >
         <Typography variant="h6">{brandName}</Typography>
       </Grid>
-      <Grid md={8} xs={4}></Grid>
+      <Grid md={8} xs={0}></Grid>
       <Grid md={1} xs={2} >
         <span
         // style={{

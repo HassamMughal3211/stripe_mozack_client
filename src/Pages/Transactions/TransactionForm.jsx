@@ -581,7 +581,7 @@ const TransactionForm = () => {
                 <Grid item md={6} xs={12} sx={{ p: 1 }}>
                   <TextField
                     name="Discription"
-                    label="Disription"
+                    label="Description"
                     type="text"
                     minRows={4}
                     multiline

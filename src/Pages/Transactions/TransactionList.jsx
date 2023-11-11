@@ -166,7 +166,7 @@ const TransactionList = () => {
       width: 100,
     },
     {
-      label: "Discription",
+      label: "Description",
       field: "discription",
       sort: "asc",
       width: 150,

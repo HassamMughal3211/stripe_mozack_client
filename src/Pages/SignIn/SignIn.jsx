@@ -18,7 +18,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actions/authAction";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
-import { brandName, lightBackground, white } from "../../Assets/Theme/ThemeColors";
+import {
+  brandName,
+  lightBackground,
+  white,
+} from "../../Assets/Theme/ThemeColors";
 import logo from "../../Assets/images/logo.png";
 import CustomizedSnackbars from "../../Components/SnackBar/SnackBar";
 import { Error } from "@mui/icons-material";
@@ -114,12 +118,12 @@ export default function SignIn() {
         >
           <Grid>
             <Grid xs={12} sx={{ p: 2, mb: 2 }}>
-              <img src={logo} style={{ height: "30px", width: "200px" }} />
+              <img src={logo} height="60px" width="300px" alt="logo"></img>
             </Grid>
 
-            <Typography component="h1" variant="h5">
+            {/* <Typography component="h1" variant="h5">
               Sign in
-            </Typography>
+            </Typography> */}
             <Box
               component="form"
               onSubmit={handleSubmit}

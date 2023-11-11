@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import {
+  brandUrl,
   button,
   cardBackground,
   invoiceCard,
@@ -125,7 +126,7 @@ const InvoicePage = () => {
       {isLoading ? (
         <>
           {/* info */}
-          <Grid
+          {/* <Grid
             container
             xs={12}
             sx={{
@@ -150,7 +151,7 @@ const InvoicePage = () => {
               }}
             >
               <MailIcon sx={{ color: `${button}`, mr: 1 }} />
-              info@theassignmentexpert.co.uk
+              info@britishacademicsexpert.co.uk{" "}
             </Typography>
             <Typography
               sx={{
@@ -176,9 +177,9 @@ const InvoicePage = () => {
               }}
             >
               <LocalPhoneIcon sx={{ color: `${button}`, mr: 1 }} />{" "}
-              +442032397505
+              +442070971249
             </Typography>
-          </Grid>
+          </Grid> */}
           {/* navbar */}
           <Grid
             container
@@ -201,7 +202,7 @@ const InvoicePage = () => {
                 alignItems: "center",
               }}
             >
-              <img src={logo} height="30px" width="180px" alt="logo"></img>
+              <img src={logo} height="40px" width="200px" alt="logo"></img>
             </Grid>
             <Grid item md={8} xs={2}></Grid>
           </Grid>
@@ -245,10 +246,12 @@ const InvoicePage = () => {
                       {/* <Typography variant="h6" display="block" gutterBottom>
                         {data.brand}
                       </Typography> */}
+
                       <img
                         src={logo}
-                        style={{ height: "30px", width: "180px" }}
-                      />
+                        height="40px" width="200px"
+                        alt="logo"
+                      ></img>
                     </Grid>{" "}
                     {/* <Grid
                       sx={{ display: "flex", justifyContent: "flex-end" }}
@@ -363,7 +366,7 @@ const InvoicePage = () => {
                 <Grid
                   container
                   sx={{
-                    background: `${lightBackground}`,
+                    background: `${mainBackgound}`,
                     p: 1,
                     borderRadius: "3px",
                     color: `${white}`,
@@ -375,7 +378,7 @@ const InvoicePage = () => {
                     container
                     sx={{
                       background: `${button}`,
-                      color: `${lightText}`,
+                      color: `${mainBackgound}`,
                       borderRadius: "3px",
                       p: 1,
                     }}
@@ -385,13 +388,37 @@ const InvoicePage = () => {
                       xs={10}
                       sx={{ display: "flex", justifyContent: "flex-start" }}
                     >
-                      Description
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                        sx={{
+                          height: "100%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItem: "center",
+                        }}
+                      >
+                        Description
+                      </Typography>
                     </Grid>{" "}
                     <Grid
                       sx={{ display: "flex", justifyContent: "flex-end" }}
                       xs={2}
                     >
-                      Amount
+                      <Typography
+                        variant="subtitle2"
+                        gutterBottom
+                        component="div"
+                        sx={{
+                          height: "100%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItem: "center",
+                        }}
+                      >
+                        Amount
+                      </Typography>
                     </Grid>{" "}
                   </Grid>
                   <Grid item className="row" container sx={{ p: 1 }}>
@@ -735,8 +762,8 @@ const InvoicePage = () => {
                 alignItems: "center",
               }}
             >
-              <Typography variant="h8" style={{ color: "white" }}>
-                ©2022 Theassignmentexpert.co.uk. All Right Reserved.
+              <Typography variant="h8" style={{ color: "black" }}>
+                <b> ©{new Date().getFullYear()} {brandUrl} All Right Reserved.</b>
               </Typography>
             </Grid>
           </Grid>

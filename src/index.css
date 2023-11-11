@@ -14,14 +14,26 @@ code {
 
 /* table css */
 .pagination .page-item.active .page-link {
-  background: #131e3c !important;
+  background: #1a2131 !important;
 }
 table thead:first-child {
-  background: #131e3c;
+  background: #1a2131;
   color: white;
 }
 table thead:last-child {
   display: none !important;
+}
+
+#submit {
+  width: 100%;
+  margin-top : 20px;
+  text-transform: none;
+  background: #1a2131;
+  padding: 10px;
+  min-width: 100px;
+  border-radius: 4px;
+  color: white;
+  border: 0;
 }
 
 /* .css-1ygcj2i-MuiTableCell-root {

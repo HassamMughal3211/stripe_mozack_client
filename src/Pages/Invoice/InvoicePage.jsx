@@ -202,7 +202,7 @@ const InvoicePage = () => {
                 alignItems: "center",
               }}
             >
-              <img src={logo} height="40px" width="200px" alt="logo"></img>
+              <img src={logo} height="40px" width="120px" alt="logo"></img>
             </Grid>
             <Grid item md={8} xs={2}></Grid>
           </Grid>
@@ -249,7 +249,7 @@ const InvoicePage = () => {
 
                       <img
                         src={logo}
-                        height="40px" width="200px"
+                        height="40px" width="120px"
                         alt="logo"
                       ></img>
                     </Grid>{" "}

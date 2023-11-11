@@ -118,7 +118,7 @@ export default function SignIn() {
         >
           <Grid>
             <Grid xs={12} sx={{ p: 2, mb: 2 }}>
-              <img src={logo} height="60px" width="300px" alt="logo"></img>
+              <img src={logo} height="60px" width="180px" alt="logo"></img>
             </Grid>
 
             {/* <Typography component="h1" variant="h5">

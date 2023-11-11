@@ -1,5 +1,5 @@
 const navbarAll = "#ffffff"
-const darkAll = "#1a2131"
+const darkAll = "#002c42"
 const secondColorAll = "#27b88b"
 
 
@@ -16,15 +16,18 @@ export const white = "#ffffff";
 
 //theme color for Brand Invoice
 
-// export const brandName = "theassignmenthelpers";
-export const brandName = "The Assignment Helpers";
-export const brandUrl = "Theassignmenthelpers.co.uk";
+export const brandName = "Students Consultancy";
+export const brandUrl = "Studentsconsultancy.co.uk";
 
 export const navbar = navbarAll;
 export const navbarText = darkAll;
 export const lightText = navbarAll;
 export const mainBackgound = darkAll;
 export const invoiceCard = "#e1e2e6";
-export const button = "#27b88b";
+export const button = "#3693ab";
 export const cardBackground = "#e1e2e6";
+
+
+
+// 3693ab
 

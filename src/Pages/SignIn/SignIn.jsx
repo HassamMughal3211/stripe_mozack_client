@@ -21,6 +21,7 @@ import { CircularProgress } from "@mui/material";
 import {
   brandName,
   lightBackground,
+  navbar,
   white,
 } from "../../Assets/Theme/ThemeColors";
 import logo from "../../Assets/images/logo.png";
@@ -117,8 +118,11 @@ export default function SignIn() {
           }}
         >
           <Grid>
-            <Grid xs={12} sx={{ p: 2, mb: 2 }}>
-              <img src={logo} height="60px" width="180px" alt="logo"></img>
+            <Grid
+              xs={12}
+              sx={{ p: 2, mb: 2, background: `${lightBackground}`, color: `${white}` , borderRadius :"10px"}}
+            >
+              <img src={logo} height="60px" width="220px" alt="logo"></img>
             </Grid>
 
             {/* <Typography component="h1" variant="h5">

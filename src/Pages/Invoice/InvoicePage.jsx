@@ -18,6 +18,7 @@ import {
   brandUrl,
   button,
   cardBackground,
+  darkButton,
   invoiceCard,
   lightBackground,
   lightText,
@@ -202,7 +203,7 @@ const InvoicePage = () => {
                 alignItems: "center",
               }}
             >
-              <img src={logo} height="40px" width="120px" alt="logo"></img>
+              <img src={logo} height="40px" width="160px" alt="logo"></img>
             </Grid>
             <Grid item md={8} xs={2}></Grid>
           </Grid>
@@ -224,8 +225,8 @@ const InvoicePage = () => {
             <Grid item md={5} xs={12}>
               <Paper
                 sx={{
-                  background: `${invoiceCard}`,
-                  color: `${mainBackgound}`,
+                  background: `${navbar}`,
+               //   color: `${mainBackgound}`,
                   p: 2,
                   paddingTop: "20px",
                   paddingBottom: "10%",
@@ -249,7 +250,7 @@ const InvoicePage = () => {
 
                       <img
                         src={logo}
-                        height="40px" width="120px"
+                        height="40px" width="160px"
                         alt="logo"
                       ></img>
                     </Grid>{" "}
@@ -271,7 +272,7 @@ const InvoicePage = () => {
                         gutterBottom
                         component="div"
                         style={{
-                          background: `${mainBackgound}`,
+                          background: `${darkButton}`,
                           color: "white",
                           padding: "5px",
                           borderRadius: "10px",
@@ -285,7 +286,7 @@ const InvoicePage = () => {
                   <Grid item className="row" container>
                     {" "}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-start" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" , color: "white" }}
                       xs={12}
                     >
                       <Typography
@@ -306,7 +307,7 @@ const InvoicePage = () => {
                       Phone : 09876543
                     </Grid>{" "} */}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-start" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" , color: "white",}}
                       xs={12}
                     >
                       <Typography
@@ -327,7 +328,7 @@ const InvoicePage = () => {
                       website : CyberClosses.com
                     </Grid>{" "} */}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-start" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" , color: "white", }}
                       xs={12}
                     >
                       <Typography
@@ -348,7 +349,7 @@ const InvoicePage = () => {
                       Email : abc@gmail.com
                     </Grid>{" "} */}
                     <Grid
-                      sx={{ display: "flex", justifyContent: "flex-start" }}
+                      sx={{ display: "flex", justifyContent: "flex-start" , color: "white", }}
                       xs={12}
                     >
                       <Typography
@@ -377,8 +378,8 @@ const InvoicePage = () => {
                     className="row"
                     container
                     sx={{
-                      background: `${button}`,
-                      color: `${mainBackgound}`,
+                      background: `${darkButton}`,
+                      color: `${white}`,
                       borderRadius: "3px",
                       p: 1,
                     }}
@@ -541,7 +542,7 @@ const InvoicePage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      color: `${button}`,
+                      color: `${darkButton}`,
                       textAlign: "center",
                       paddingTop: "25px",
                       fontWeight: "300px !important",
@@ -552,7 +553,7 @@ const InvoicePage = () => {
                   <Typography
                     variant="h5"
                     sx={{
-                      color: `${button}`,
+                      color: `${darkButton}`,
                       textAlign: "center",
                       paddingTop: "5px",
                       marginBottom: "20px",
@@ -749,7 +750,7 @@ const InvoicePage = () => {
             xs={12}
             sx={{
               height: "5vh",
-              background: `${button}`,
+              background: `${darkButton}`,
               color: `${navbarText}`,
             }}
           >
@@ -762,7 +763,7 @@ const InvoicePage = () => {
                 alignItems: "center",
               }}
             >
-              <Typography variant="h8" style={{ color: "black" }}>
+              <Typography variant="h8" style={{ color: "white" }}>
                 <b> ©{new Date().getFullYear()} {brandUrl} All Right Reserved.</b>
               </Typography>
             </Grid>
@@ -770,7 +771,7 @@ const InvoicePage = () => {
         </>
       ) : (
         <>
-          <Typography variant="h5">
+          <Typography variant="h5" sx={{display:"flex", alignItems:"center" , justifyContent:"center"}}>
             {" "}
             <CircularProgress />
             LOADING

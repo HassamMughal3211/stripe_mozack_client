@@ -14,10 +14,10 @@ code {
 
 /* table css */
 .pagination .page-item.active .page-link {
-  background: #002c42 !important;
+  background: #17272d !important;
 }
 table thead:first-child {
-  background: #002c42;
+  background: #17272d;
   color: white;
 }
 table thead:last-child {
@@ -29,7 +29,7 @@ table thead:last-child {
   width: 100%;
   margin-top : 20px;
   text-transform: none;
-  background: #002c42;
+  background: #cf2727;
   padding: 10px;
   min-width: 100px;
   border-radius: 4px;
